@@ -7,9 +7,6 @@ if(isNode) {
   try {
 	    isNodeWebkit = (typeof require('nw.gui') !== "undefined");
 
-	    //textract, for dealing with various filetypes
-		var textract = require('textract');
-
 	    if(!store.get('openRecent'))
 	    	store.set('openRecent', []);
 	    if(store.get('currentFile'))

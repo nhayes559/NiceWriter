@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
     <!--TODO A stylesheet rule in style.css gets updated in App.js. Make sure main.css remains the top stylesheet, or make this more robust!-->
   <link rel='stylesheet' type='text/css' href='css/style.css'>
-  <link href='http://fonts.googleapis.com/css?family=Fauna+One|Muli:300|Marmelad|Open+Sans:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Fauna+One|Muli:300|Marmelad|Open+Sans:300,400' 
+        rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/lib/sweet-alert.css">
 </head>
@@ -12,22 +14,56 @@
 
 	<!-- ********* APP VIEW ********* -->
 
-	<div id="app" ondrop="imageDrop(event)" ondragenter="imageDragenter(event)" ondragover="imageDragover(event)" v-style="background: currentTheme.backgroundColour">
+	<div id="app" 
+	     ondrop="imageDrop(event)" 
+	     ondragenter="imageDragenter(event)" 
+	     ondragover="imageDragover(event)" 
+	     v-style="background: currentTheme.backgroundColour">
 
 
 		<!-- ********* BACKGROUND IMAGE VIEW ********* -->
 
-		<img id="backgroundImage" onmousemove="mouseOverApp(event)" v-attr="src: image" v-show="hasImage" v-style="opacity: backgroundOpacity"/>
+		<img id="backgroundImage" 
+		     onmousemove="mouseOverApp(event)" 
+		     v-attr="src: image" 
+		     v-show="hasImage" 
+		     v-style="opacity: backgroundOpacity"/>
 		
 
-		<input id="export_file" type="file" nwsaveas style="display:none" nwworkingdir=""/>
-		<input style="display:none;" id="open_file" type="file" />
-		<div id="page" onmousemove="mouseOverText(event)" v-class="shifted: showingThemes" v-style="font-family: currentTheme.fontStyle, font-size: currentTheme.fontSize, width: currentTheme.textWidth, height: currentTheme.textHeight">
-			<div onkeydown="typedSomething(event)" id="text" contenteditable="true" v-style="line-height: currentTheme.lineSpacing, color: currentTheme.fontColour"></div>
+		<input id="export_file" 
+		       type="file" 
+		       nwsaveas 
+		       style="display:none" 
+		       nwworkingdir=""/>
+		<input style="display:none;" 
+		       id="open_file" 
+		       type="file" />
+		<div id="page" 
+		     onmousemove="mouseOverText(event)" 
+		     v-class="shifted: showingThemes" 
+		     v-style="font-family: currentTheme.fontStyle, 
+		              font-size: currentTheme.fontSize, 
+		              width: currentTheme.textWidth, 
+		              height: currentTheme.textHeight">
+			<div onkeydown="typedSomething(event)" 
+			     id="text" 
+			     contenteditable="true" 
+			     v-style="line-height: currentTheme.lineSpacing, 
+			              color: currentTheme.fontColour">
+			</div>
 		</div>
 		<div id="dropwrapper"></div>
-		<div id="transparencylayer" v-class="shifted: showingThemes" v-style="opacity: currentTheme.editorOpacity, width: currentTheme.textWidth, height: currentTheme.textHeight"></div>
-		<div id="themebutton" v-on="click: toggleThemes" v-class="active: showingThemes, faded: faded, lessfaded : lessfaded">
+		<div id="transparencylayer" 
+		     v-class="shifted: showingThemes" 
+		     v-style="opacity: currentTheme.editorOpacity, 
+		              width: currentTheme.textWidth, 
+		              height: currentTheme.textHeight">
+		</div>
+		<div id="themebutton" 
+		     v-on="click: toggleThemes" 
+		     v-class="active: showingThemes, 
+		              faded: faded, 
+		              lessfaded : lessfaded">
   				Themes
   				<i class="fa fa-paint-brush"></i>
   		</div>
@@ -35,26 +71,37 @@
 
 		<!-- ********* THEMES VIEW ********* -->
 
-		<div id="themelayer" v-class="active: showingThemes">
-			<div class="themecard" v-repeat="theme: themes" v-on="click: select($index)" v-class="active: theme.selected, settingsview: theme.viewSettings">
-				<div class="themepreviewcontainer" v-style="opacity: theme.backgroundOpacity">
-					<img class="themeimage" v-attr="src: theme.image" v-show="theme | hasImage"/>
-					<div style="position:absolute; height:100%; width:100%;">
-						<div class="themepreview" v-style="font-family: theme.fontStyle, font-size: theme.fontSize, color: theme.fontColour, background: theme.backgroundColour, opacity: theme.editorOpacity">
-							<div class="themepreviewtext">
-							  Lorem ipsum dolor sit amet, ex vel agam mediocrem. Eu vix mentitum recteque, eum cu etiam interesset, vix ut saperet vituperata. 
-							  <br>
-							  <br>
-							  Congue impetus placerat in duo, ei alienum epicuri constituam qui. Eum sumo reprimique signiferumque in, cum choro habemus inciderint in. Eu mea aliquam forensibus. Quo ut mollis accumsan.
-							  <br>
-							  <br>
-							  Tempor vivendo ullamcorper ius ne, eam sonet euismod ex. Sed an veniam adipiscing, vel ad aeterno tacimates. Quo an alii mundi aperiri, ius stet feugiat sensibus cu. Id velit consequat sit. Mea id ferri exerci consulatu, atqui laudem propriae ei vix. At choro soleat qui.  
-						     </div>
+		<div id="themelayer" 
+		     v-class="active: showingThemes">
+			<div class="themecard" 
+			     v-repeat="theme: themes" 
+			     v-on="click: select($index)" 
+			     v-class="active: theme.selected, 
+			              settingsview: theme.viewSettings">
+				<div class="themepreviewcontainer" 
+				     v-style="opacity: theme.backgroundOpacity">
+					<img class="themeimage" 
+					     v-attr="src: theme.image"/>
+					<div class="themepreview" 
+					     v-style="font-family: theme.fontStyle, 
+					              font-size: theme.fontSize, 
+					              color: theme.fontColour, 
+					              background: theme.backgroundColour, 
+					              opacity: theme.editorOpacity">
+						<div class="themepreviewtext">
+							Lorem ipsum dolor sit amet, ex vel agam mediocrem. Eu vix mentitum recteque, eum cu etiam interesset, vix ut saperet vituperata. 
+							<br>
+							<br>
+							Congue impetus placerat in duo, ei alienum epicuri constituam qui. Eum sumo reprimique signiferumque in, cum choro habemus inciderint in. Eu mea aliquam forensibus. Quo ut mollis accumsan.
+							<br>
+							<br>
+							Tempor vivendo ullamcorper ius ne, eam sonet euismod ex. Sed an veniam adipiscing, vel ad aeterno tacimates. Quo an alii mundi aperiri, ius stet feugiat sensibus cu. Id velit consequat sit. Mea id ferri exerci consulatu, atqui laudem propriae ei vix. At choro soleat qui.  
 						</div>
 					</div>
 				</div>
 				<div class="themesettings">
-				    <div class="cardiconwrapper" v-on="click: theme.viewSettings = !theme.viewSettings">
+				    <div class="cardiconwrapper" 
+				         v-on="click: theme.viewSettings = !theme.viewSettings">
 				    	<i class="fa fa-ellipsis-h cardicon"></i>
 				    </div>
 					<div class="cardiconwrapper"></div>
@@ -67,7 +114,7 @@
 				</div>
 				<div class="themesettingsmenu" v-show="theme.viewSettings">
 					<div class="settingspadder"></div>
-						<p>Fonts</p>
+					<div class="settingsname">Fonts</div>
 					<span class="settingslabel">Style:</span>
 					<select v-on="change: setFontStyle(theme)">
 						<option 
@@ -81,7 +128,7 @@
 					<input v-attr="placeholder: theme.fontSize"
 						   v-on="keyup: setFontSize(theme)"
 						   v-model="theme.fontSize"/>
-					<p>Colours</p>
+					<div class="settingsname">Colours</div>
 					<span class="settingslabel" >Font:</span>
 					<input v-attr="placeholder: theme.fontColour"
 						   v-on="keyup: setFontColour(theme)"
@@ -91,8 +138,7 @@
 					<input v-attr="placeholder: theme.backgroundColour"
 						   v-on="keyup: setBackgroundColour(theme)"
 						   v-model="theme.backgroundColour"/>
-					<div class="settingspadder"></div>
-					<p>Spacing</p>
+					<div class="settingsname">Spacing</div>
 					<span class="settingslabel">Line:</span>
 					<input v-attr="placeholder: theme.lineSpacing"
 						   v-on="keyup: setLineSpacing(theme)"
@@ -102,8 +148,7 @@
 					<input v-attr="placeholder: theme.paragraphSpacing"
 						   v-on="keyup: setParagraphSpacing(theme)"
 						   v-model="theme.paragraphSpacing"/>
-					<div class="settingspadder"></div>
-					<p>Editor Sizing</p>
+					<div class="settingsname">Editor Sizing</div>
 					<span class="settingslabel">Width:</span>
 					<input v-attr="placeholder: theme.textWidth"
 						   v-on="keyup: setTextWidth(theme)"
@@ -113,7 +158,7 @@
 					<input v-attr="placeholder: theme.textHeight"
 						   v-on="keyup: setTextHeight(theme)"
 						   v-model="theme.textHeight"/>
-					<p>Transparency</p>
+					<div class="settingsname">Transparency</div>
 					<span class="settingslabel">Back:</span>
 					<input v-attr="placeholder: theme.backgroundOpacity"
 						   v-on="keyup: setBackgroundOpacity(theme)"
@@ -123,7 +168,6 @@
 					<input v-attr="placeholder: theme.editorOpacity" 
 						   v-on="keyup: setEditorOpacity(theme)"
 						   v-model="theme.editorOpacity"/>
-					<div class="settingspadder"></div>
 					<div class="settingspadder"></div>
 					<div class="settingspadder"></div>
 					<div class="settingspadder"></div>
@@ -158,7 +202,11 @@
 					<span id="wordcount">0</span>
 					<span id="words">words</span>
 				</div>
-				<i id="statuslock" class="fa" v-on="click: toggleLock" v-class="fa-lock: locked, fa-unlock-alt: !locked"></i>
+				<i id="statuslock" 
+				   class="fa" 
+				   v-on="click: toggleLock" 
+				   v-class="fa-lock: locked, 
+				            fa-unlock-alt: !locked"></i>
 			</div>
 		</div>
 	</div>
