@@ -1,0 +1,7 @@
+{
+  "name": "nw-writer",
+  "main": "index.html",
+  "dependencies": {
+    "lowdb": "~0.7.1"
+  }
+}
