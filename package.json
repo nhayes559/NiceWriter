@@ -3,5 +3,15 @@
   "main": "index.html",
   "dependencies": {
     "lowdb": "~0.7.1"
+  },
+  "window": {
+    "title": "NiceWriter",
+    "toolbar": false,
+    "frame": true,
+    "width": 1200,
+    "height": 1000,
+    "position": "mouse",
+    "min_width": 800,
+    "min_height": 600
   }
 }
